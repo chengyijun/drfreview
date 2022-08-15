@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "api",
+    "api02",
+    "api03",
     "rest_framework",
 ]
 
@@ -79,15 +81,15 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        #数据库的名字
+        # 数据库的名字
         'NAME': 'drfreview',
-        #数据库地址
+        # 数据库地址
         'HOST': 'localhost',
-        #端口
+        # 端口
         'PORT': '3306',
-        #用户名
+        # 用户名
         'USER': 'root',
-        #密码
+        # 密码
         "PASSWORD": '123456',
     }
 }
@@ -98,19 +100,19 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.MinimumLengthValidator',
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.CommonPasswordValidator',
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.NumericPasswordValidator',
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 

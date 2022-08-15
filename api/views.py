@@ -1,16 +1,12 @@
-from dataclasses import fields
-from msilib.schema import Class
-from multiprocessing import context
-from pyexpat import model
-from unicodedata import name
-from django.shortcuts import render
-from rest_framework.views import APIView
+from rest_framework import serializers
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-from api.auth import MyAuth
+from rest_framework.views import APIView
+
 from api.models import Classes, Student
+
+
 # Create your views here.
 
 
@@ -30,7 +26,6 @@ class StudentSeri(ModelSerializer):
 
 
 class ClassesSeri(ModelSerializer):
-
     # 必须与模型外键 反向查找别名一致才行 related_name='stus'
     stus = StudentSeri(many=True)
 
@@ -42,7 +37,6 @@ class ClassesSeri(ModelSerializer):
         fields = "__all__"
 
     def get_stus(self, obj: Classes):
-
         print("*******", obj)
         print("^^^^^^^^^^", obj.stus.values("id", "stu_name"))
         return obj.stus.values("id", "stu_name")
@@ -68,7 +62,6 @@ class TestView(APIView):
     # authentication_classes = [MyAuth]
 
     def get(self, request: Request, *args, **kwargs):
-
         # cl = Classes()
         # cl.classes_name = "319班"
         # cl.save()
@@ -123,7 +116,6 @@ class Test2View(APIView):
 class Test3View(APIView):
 
     def get(self, request: Request, *args, **kwargs):
-
         id = kwargs.get("id")
         stus = Classes.objects.filter(id=id).get()
         ser = ClassesSeri(instance=stus,
@@ -137,7 +129,6 @@ class Test3View(APIView):
 class Test4View(APIView):
 
     def get(self, request: Request, *args, **kwargs):
-
         stus = Student.objects.all()
         ser = StudentSeri(instance=stus,
                           many=True,
