@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "api",
     "api02",
     "api03",
+    "api04",
     "rest_framework",
 ]
 
@@ -138,3 +139,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    # "PAGE_SIZE": 2
+}

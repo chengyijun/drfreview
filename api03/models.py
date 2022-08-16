@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, connection
 
 
 # Create your models here.
@@ -6,6 +6,14 @@ class MyBaseModelManager(models.Manager):
 
     def get_queryset(self):
         return super().get_queryset().filter(is_delete=False)
+
+    @staticmethod
+    def raw_sql_query(sql: str) -> list[dict[str, str or int]]:
+        with connection.cursor() as cursor:
+            cursor.execute(sql)
+            columns = [col[0] for col in cursor.description]
+            datas = [dict(zip(columns, row)) for row in cursor.fetchall()]
+            return datas
 
 
 class MyModelManager(MyBaseModelManager):
