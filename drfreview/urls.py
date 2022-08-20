@@ -23,4 +23,6 @@ urlpatterns = [
     path("api02/", include("api02.urls", namespace="api02")),
     path("api03/", include("api03.urls", namespace="api03")),
     path("api04/", include("api04.urls", namespace="api04")),
+    path("api05/", include("api05.urls", namespace="api05")),
+    path("api06/", include("api06.urls", namespace="api06")),
 ]
