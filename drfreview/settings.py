@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "api04",
     "api05",
     "api06",
+    "api07",
+    "api08",
     "rest_framework",
 ]
 
@@ -150,3 +152,6 @@ REST_FRAMEWORK = {
     'ALLOWED_VERSIONS': ['v1', 'v2'],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
+
+# 指定自定义的用户模型类
+AUTH_USER_MODEL = 'api08.MyUser'
